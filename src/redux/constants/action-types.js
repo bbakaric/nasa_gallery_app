@@ -1,2 +1,4 @@
-export const FETCH_IMAGES = 'FETCH_IMAGES';
-export const SET_IMAGES = 'FETCH-IMAGES';
+export const ActionTypes = {
+    SET_IMAGES: 'SET_IMAGES',
+    FETCH_IMAGES: 'FETCH_IMAGES'
+};

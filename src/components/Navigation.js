@@ -1,6 +1,7 @@
 import React from 'react';
 import Homepage from './Homepage';
 import Search from './Search';
+import Favourites from './Favourites';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
@@ -31,10 +32,10 @@ function Navigation() {
                 <Route path="/search" component={Search}>
                     <Search />
                 </Route>
-                {/* <Route path="/favourites" component={Favourites}>
+                <Route path="/favourites" component={Favourites}>
                     <Favourites />
                 </Route>
-                <Route path="/login" component={Login}>
+                {/* <Route path="/login" component={Login}>
                     <Login />
                 </Route> */}
             </Switch>

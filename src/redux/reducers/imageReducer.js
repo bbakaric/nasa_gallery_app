@@ -1,16 +1,22 @@
-import {  FETCH_IMAGES, SET_IMAGES } from '../constants/action-types';
+import { ActionTypes } from '../constants/action-types';
 
 const initialState = {
-  image: '',
+  image: [],
 };
 
-export const imageReducer = (state = initialState, { type, payload }) => {
-  switch(type) {
-    case SET_IMAGES:
-      return {...state, image: payload};
-    case FETCH_IMAGES:
-      return {...state, image: payload};
+export default function imageReducer(state = initialState, action) {
+  switch(action.type) {
+    case ActionTypes.SET_IMAGES:
+      return {
+        ...state,
+        image: action.payload
+      };
+    case ActionTypes.FETCH_IMAGES:
+      return {
+        ...state,
+        image: action.payload
+      };
     default:
       return state;
   }
-};
+}
