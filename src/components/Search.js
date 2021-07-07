@@ -1,21 +1,24 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { actionCreators } from '../state/index';
+
+import { setImages, fetchImage } from '../redux/actions/imageActions';
 
 
 function Search() {
-
-    const images = useSelector((state) => state.images);
+    const images = useSelector((state) => state.allImages.image);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchImage());
+    }, []);
+
     
-    const { fetch_images } = bindActionCreators(actionCreators, dispatch);
-    
+
     return (
         <div>
-            {console.log(fetch_images)}
-            Test
+            test
         </div>
+        
     )
 }
 

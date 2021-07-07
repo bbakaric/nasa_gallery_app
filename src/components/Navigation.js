@@ -10,13 +10,13 @@ function Navigation() {
     <Router>
         <Container fluid>
             <Navbar bg="dark" variant="dark" expand="md">
-                <Navbar.Brand as={Link} to="/homepage" className="px-3">
+                <Navbar.Brand as={Link} to="/" className="px-3">
                     NASA Gallery
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto px-3">
-                        <Nav.Link as={Link} to="/homepage">Homepage</Nav.Link>
+                        <Nav.Link as={Link} to="/">Homepage</Nav.Link>
                         <Nav.Link as={Link} to="/search">Search Gallery</Nav.Link>
                         <Nav.Link as={Link} to="/favourites">Favourites</Nav.Link>
                         <Nav.Link as={Link} to="/login">Login</Nav.Link>
@@ -25,7 +25,7 @@ function Navigation() {
             </Navbar>
         
             <Switch>
-                <Route path="/homepage" exact component={Homepage} />
+                <Route path="/" exact component={Homepage} />
                     
                 
                 <Route path="/search" component={Search}>
