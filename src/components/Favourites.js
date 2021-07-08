@@ -4,12 +4,12 @@ import { Container, Card, Button } from 'react-bootstrap';
 
 function Favourites() {
 
-    const images = useSelector((state) => state.allImages.image);
-
+    const images = useSelector((state) => state.allImages.images);
+    
     return (
         <Container fluid>
             <Card style={{ width: '18rem'}} className='text-center'>
-                <Card.Img variant="top" src={images.photos[0].img_src} />
+                <Card.Img variant="top" src={images.url} />
                 <Card.Body>
                     <Card.Title>Rover name: {images.photos[0].rover.name}</Card.Title>
                     <Card.Text>
