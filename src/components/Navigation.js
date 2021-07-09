@@ -2,15 +2,16 @@ import React from 'react';
 import Homepage from './Homepage';
 import Search from './Search';
 import Favourites from './Favourites';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+
 
 function Navigation() {
     return (
     <Router>
-        <Container fluid>
-            <Navbar bg="dark" variant="dark" expand="md">
+        <Container fluid >
+        <Navbar bg="success" variant="dark" expand="md" >
                 <Navbar.Brand as={Link} to="/" className="px-3">
                     NASA Gallery
                 </Navbar.Brand>
@@ -24,7 +25,8 @@ function Navigation() {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        
+            </Container>
+
             <Switch>
                 <Route path="/" exact component={Homepage} />
                     
@@ -39,7 +41,6 @@ function Navigation() {
                     <Login />
                 </Route> */}
             </Switch>
-        </Container>
     </Router>
     );
 }

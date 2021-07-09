@@ -1,5 +1,5 @@
 import React,  { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { searchImages } from '../redux/actions/imageActions';
 import Searchresult from './Searchresult';
@@ -17,19 +17,23 @@ function Search() {
         const dispatch = useDispatch();
         const onSubmit = (e) => {
             e.preventDefault();
+            if(term !== '') {
             dispatch(searchImages(term, date))
+            }
             setTerm('')
         }
         
     return (
-        <Container>
-            <Form className='my-5' onSubmit={onSubmit}>
-                <Form.Group className="mb-3" controlId="searchBar">
-                    <Form.Control type="text" placeholder="Enter your term (ex. sun)" onChange={handleChangeTerm} value={term} />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                Search
-                </Button>
+        <Container fluid >
+            <Form onSubmit={onSubmit}>
+                <Row className='my-3 justify-content-md-center' lg='auto' >
+                    <Col lg='4'>
+                    <Form.Control placeholder="Search term" onChange={handleChangeTerm} value={term}/>
+                    </Col>
+                    <Col>
+                    <Button type="submit">Search</Button>
+                    </Col>
+                </Row>
             </Form>
             <Searchresult />
         </Container>
