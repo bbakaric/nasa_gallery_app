@@ -25,13 +25,13 @@ function Search() {
         
     return (
         <Container fluid >
-            <Form onSubmit={onSubmit}>
+            <Form onSubmit={onSubmit} className='pt-5' >
                 <Row className='my-3 justify-content-md-center' lg='auto' >
                     <Col lg='4'>
                     <Form.Control placeholder="Search term" onChange={handleChangeTerm} value={term}/>
                     </Col>
                     <Col>
-                    <Button type="submit">Search</Button>
+                    <Button type="submit" >Search</Button>
                     </Col>
                 </Row>
             </Form>

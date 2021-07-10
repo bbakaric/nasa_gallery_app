@@ -1,14 +1,13 @@
 import React from 'react'
-import { Container } from 'react-bootstrap';
+import { Container, Image } from 'react-bootstrap';
 
 function Homepage() {
 
     return (
-        <Container fluid>
-            <h3>
-                Welcome
-            </h3>
-        </Container>
+            <div style={{marginTop:'50px', color:'white'}}>
+            <h1 style={{color:'white'}}>Welcome to NASA Gallery Search Engine</h1>
+            <Image src='https://www.universetoday.com/wp-content/uploads/2021/04/speckle.jpg' style={{height:'100vh', width:'100%'}} />
+            </div>
     )
 }
 
