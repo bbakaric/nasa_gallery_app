@@ -1,12 +1,14 @@
 import React from 'react'
-import { Container, Image } from 'react-bootstrap';
+import '../style.css';
 
 function Homepage() {
 
     return (
-            <div style={{marginTop:'50px', color:'white'}}>
-            <h1 style={{color:'white'}}>Welcome to NASA Gallery Search Engine</h1>
-            <Image src='https://www.universetoday.com/wp-content/uploads/2021/04/speckle.jpg' style={{height:'100vh', width:'100%'}} />
+            <div className='home'>
+                <div className='second'>
+            <h1 className='homeHdr' >Welcome to NASA Gallery Search Engine</h1>
+            <img src='https://image.flaticon.com/icons/png/512/190/190276.png' alt='ufo' className='ufoImg lightSpeedOut'></img>
+                </div>
             </div>
     )
 }
