@@ -1,4 +1,4 @@
-import React,  { useState } from 'react';
+import React,  { useState, useRef, useEffect } from 'react';
 import '../style.css';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -15,6 +15,12 @@ function Search() {
             setTerm(e.target.value)
         };
 
+        const scrollToTop = () =>{
+            window.scrollTo({
+              top: 0
+            });
+          };
+
         const dispatch = useDispatch();
         const onSubmit = (e) => {
             e.preventDefault();
@@ -22,15 +28,16 @@ function Search() {
             dispatch(searchImages(term, date))
             }
             setTerm('')
+            scrollToTop();
         }
         
     return (
         <div>
-        <div className='searchBar'>
-            <Form onSubmit={onSubmit} className='pt-5' >
+        <div className='searchBar' >
+            <Form onSubmit={onSubmit} className='pt-5' expand='sm' >
                 <Row className='my-3 justify-content-md-center pb-2' lg='auto' >
                     <Col lg='4'>
-                    <Form.Control placeholder="Search term" onChange={handleChangeTerm} value={term}/>
+                    <Form.Control placeholder="Search term" onChange={handleChangeTerm} value={term} autoFocus={true}/>
                     </Col>
                     <Col>
                     <Button type="submit" variant='danger' >Search</Button>
