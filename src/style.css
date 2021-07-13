@@ -54,3 +54,10 @@
     opacity: 0;
     }
     } 
+
+    .searchBar {
+        position: sticky;
+        z-index: 1;
+        top: 0px;
+        background: #212529;
+    }

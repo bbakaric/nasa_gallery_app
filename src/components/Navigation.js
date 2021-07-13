@@ -2,6 +2,7 @@ import React from 'react';
 import Homepage from './Homepage';
 import Search from './Search';
 import Favourites from './Favourites';
+import Login from './Login';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -11,7 +12,7 @@ function Navigation() {
     return (
     <Router>
         <Container fluid >
-        <Navbar bg="dark" variant="dark" expand="md" fixed="top" className='h-10'>
+        <Navbar bg="dark" variant="dark" expand="md" fixed="top">
                 <Navbar.Brand as={Link} to="/" className="px-3">
                     NASA Gallery
                 </Navbar.Brand>
@@ -37,9 +38,9 @@ function Navigation() {
                 <Route path="/favourites" component={Favourites}>
                     <Favourites />
                 </Route>
-                {/* <Route path="/login" component={Login}>
+                <Route path="/login" component={Login}>
                     <Login />
-                </Route> */}
+                </Route>
             </Switch>
     </Router>
     );
