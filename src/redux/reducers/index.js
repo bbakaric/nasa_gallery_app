@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import imageReducer from './imageReducer';
+import allImagesReducer from './imageReducer';
+import { selectedImageReducer } from './selectedImageReducer';
 
 const rootReducer = combineReducers({
-    allImages: imageReducer
+    allImages: allImagesReducer,
+    favourites: selectedImageReducer
 });
 
 export default rootReducer;

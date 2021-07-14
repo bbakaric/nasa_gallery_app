@@ -1,4 +1,4 @@
-import React,  { useState, useRef, useEffect } from 'react';
+import React,  { useState } from 'react';
 import '../style.css';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -9,7 +9,7 @@ import Searchresult from './Searchresult';
 function Search() {
 
         const [term, setTerm] = useState('');
-        const [date, setDate] = useState(new Date().getFullYear());
+        const date = new Date().getFullYear();
 
         const handleChangeTerm = (e) => {
             setTerm(e.target.value)

@@ -1,25 +1,35 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { Container, Card, Row, Col } from 'react-bootstrap';
+import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 
 function Favourites() {
 
-    const images = useSelector((state) => state.allImages.images);
+    const favouriteImages = useSelector((state) => state.favourites.image);
+
+    console.log(favouriteImages);
+
 
     return (
         <Container fluid>
                 <Row>
-                        <Col xs={3} className='mb-5' >
-                        <Card className='h-100 bg-white rounded' >
-                            <Card.Img variant='top' src='https://images-assets.nasa.gov/image/PIA12210/PIA12210~thumb.jpg'/>
-                            <Card.Body className='d-flex flex-column'>
+                    {favouriteImages.map((img) => (
+                        <Col xs={3} className='mb-5' key={img.id} >
+                        <Card className='h-100 bg-white' style={{width: '45vh', height: '30vh'}}>
+                            <Card.Img style={{objectFit: 'cover', height: '30vh'}} variant='top' src={img.url} />
+                            <Card.Body >
                                 <Card.Title className='mb-0 font-weight-bold text-center' >
-                                    Title
+                                    {img.title} 
                                 </Card.Title>
                             </Card.Body>
+                            <Button variant='warning'>
+                                Delete
+                            </Button>
                         </Card>
                     </Col>
+                    )
+                    )}
                 </Row>
+
             </Container>
     ); 
 }
