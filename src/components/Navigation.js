@@ -4,11 +4,15 @@ import Search from './Search';
 import Favourites from './Favourites';
 import Login from './Login';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 
 function Navigation() {
+
+    const user = useSelector((state) => state.loggedInUser.user);
+
     return (
     <Router>
         <Container fluid >
@@ -22,7 +26,9 @@ function Navigation() {
                         <Nav.Link as={Link} to="/">Homepage</Nav.Link>
                         <Nav.Link as={Link} to="/search">Search Gallery</Nav.Link>
                         <Nav.Link as={Link} to="/favourites">Favourites</Nav.Link>
-                        <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                        <Nav.Link as={Link} to="/login">
+                            {user.isLoggedIn ? 'Sign-Out' : 'Sign-In'}
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

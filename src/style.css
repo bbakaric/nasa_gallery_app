@@ -24,6 +24,28 @@
     height: 125px;
 }
 
+.image {
+    transition: transform .2s
+}
+
+.image:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.lightbox {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
 .lightSpeedOut {
     -webkit-animation-name: lightSpeedOut;
     animation-name: lightSpeedOut;
