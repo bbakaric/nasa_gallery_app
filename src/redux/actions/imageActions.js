@@ -28,4 +28,23 @@ export const logIn = (email, password, isLoggedIn) => async (dispatch) => {
         type: ActionTypes.LOG_IN,
         payload: {email, password, isLoggedIn}
     })
-}
+};
+
+export const signOut = (email, password, isLoggedIn) => async (dispatch) => {
+    dispatch({
+        type: ActionTypes.SIGN_OUT,
+        payload: {email, password, isLoggedIn}
+    })
+};
+
+export const emptyFavourites = () => async (dispatch) => {
+    dispatch({
+        type: ActionTypes.EMPTY_FAVOURITES
+    })
+};
+
+export const clearSearchResults = () => async (dispatch) => {
+    dispatch({
+        type: ActionTypes.CLEAR_SEARCH_RESULTS
+    })
+};

@@ -11,6 +11,11 @@ export default function allImagesReducer(state = initialState, action) {
         ...state,
          images: action.payload
       };
+    case ActionTypes.CLEAR_SEARCH_RESULTS:
+      return {
+        ...state,
+        images: []
+      }
     default:
       return state;
   }

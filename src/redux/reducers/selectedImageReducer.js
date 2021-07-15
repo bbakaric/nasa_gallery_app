@@ -16,6 +16,11 @@ export const selectedImageReducer = (state = initialState, action) => {
         ...state,
         image: state.image.filter((image) => image.id !== action.payload)
       };
+    case ActionTypes.EMPTY_FAVOURITES:
+      return {
+        ...state,
+        image: []
+      };
     default:
       return state;
   }

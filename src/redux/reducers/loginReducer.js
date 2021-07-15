@@ -3,8 +3,6 @@ import { ActionTypes } from '../constants/action-types';
 const initialState = {
     user: [
         {
-            email: '',
-            password: '',
             isLoggedIn: false
         }
     ]
@@ -16,6 +14,11 @@ export default function loginReducer(state = initialState, action) {
         return {
           ...state,
            user: action.payload
+        };
+      case ActionTypes.SIGN_OUT:
+        return {
+          ...state,
+          user: action.payload
         };
       default:
         return state;

@@ -1,13 +1,16 @@
-import { Container, Card, Button, Col, Row  } from 'react-bootstrap';
+import React from 'react';
+import { Container, Card, Button, Col, Row } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectedImage } from '../redux/actions/imageActions';
 
 function Searchresult() {
 
     const images = useSelector((state) => state.allImages.images);
+    const user = useSelector((state) => state.loggedInUser.user);
     const dispatch = useDispatch()
 
     return (
+        
         <Container fluid>
                 <Row>
                     {images.map((img) => (
@@ -19,9 +22,13 @@ function Searchresult() {
                                     {img.data[0].title} 
                                 </Card.Title>
                             </Card.Body>
-                            <Button variant='warning' onClick={() => 
-                                dispatch(selectedImage(img.data[0].nasa_id, img.links[0].href, img.data[0].title))
-                                }>
+                            <Button variant='warning' onClick={() => {
+                                    if (user.isLoggedIn) {
+                                        dispatch(selectedImage(img.data[0].nasa_id, img.links[0].href, img.data[0].title))
+                                    } else {
+                                        alert('You must be logged in to create list of favourite pictures!')
+                                    }
+                                    }}>
                                 Add to favourites
                             </Button>
                         </Card>
@@ -29,7 +36,6 @@ function Searchresult() {
                     )
                     )}
                 </Row>
-
             </Container>
     ); 
     
