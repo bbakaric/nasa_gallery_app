@@ -10,7 +10,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.loggedInUser.user);
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value)

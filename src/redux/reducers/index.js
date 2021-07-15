@@ -6,7 +6,7 @@ import loginReducer from './loginReducer';
 const rootReducer = combineReducers({
     allImages: allImagesReducer,
     favourites: selectedImageReducer,
-    user: loginReducer
+    loggedInUser: loginReducer
 });
 
 export default rootReducer;
