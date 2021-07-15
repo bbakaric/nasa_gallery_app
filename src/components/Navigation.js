@@ -30,8 +30,6 @@ function Navigation() {
 
             <Switch>
                 <Route path="/" exact component={Homepage} />
-                    
-                
                 <Route path="/search" component={Search}>
                     <Search />
                 </Route>

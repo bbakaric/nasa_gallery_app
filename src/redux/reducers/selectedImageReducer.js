@@ -11,6 +11,11 @@ export const selectedImageReducer = (state = initialState, action) => {
         ...state,
         image: state.image.concat([action.payload])
       };
+    case ActionTypes.DELETE_IMAGE:
+      return {
+        ...state,
+        image: state.image.filter((image) => image.id !== action.payload)
+      };
     default:
       return state;
   }
