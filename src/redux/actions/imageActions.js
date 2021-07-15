@@ -22,3 +22,10 @@ export const deleteImage = (id) => async (dispatch) => {
         payload: id
     })
 };
+
+export const logIn = (email, password, isLoggedIn) => async (dispatch) => {
+    dispatch({
+        type: ActionTypes.LOG_IN,
+        payload: {email, password, isLoggedIn}
+    })
+}
