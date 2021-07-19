@@ -1,15 +1,17 @@
 import React from 'react'
+import { Container, Row, Col } from 'react-bootstrap';
 import '../style.css';
 
 function Homepage() {
 
     return (
-            <div className='home'>
-                <div className='second'>
-            <h1 className='homeHdr' >Welcome to NASA Gallery Search Engine</h1>
-            <img src='https://image.flaticon.com/icons/png/512/190/190276.png' alt='ufo' className='ufoImg lightSpeedOut'></img>
-                </div>
-            </div>
+        <Container fluid>
+            <Row>
+                <Col className='home'>
+                    <h1>Welcome to NASA Gallery Search Engine</h1>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

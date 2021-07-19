@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style.css';
-import { Container, Card, Button, Col, Row } from 'react-bootstrap';
+import { Card, Button, Col, Row } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectedImage } from '../redux/actions/imageActions';
 
@@ -11,11 +11,10 @@ function Searchresult() {
     const dispatch = useDispatch()
 
     return (
-        <Container fluid>
-                <Row>
+                <Row className='mt-5 pt-5' xs={1} sm={2} md={3} lg={4} xl={5} xxl={6}>
                     {images.map((img) => (
-                        <Col xs={3} className='mb-5' key={img.data[0].nasa_id} >
-                        <Card className='h-100 bg-white' style={{width: '45vh', height: '30vh'}}>
+                        <Col className='pb-1 pt-5' key={img.data[0].nasa_id} >
+                        <Card className='h-100 bg-white' style={{width: '100%', height: '30vh'}}>
                             <Card.Img className='image' style={{objectFit: 'cover', height: '30vh'}} variant='top' src={img.links[0].href} onClick={() => window.open(img.links[0].href, '_blank')}/>
                             <Card.Body >
                                 <Card.Title className='mb-0 font-weight-bold text-center' >
@@ -34,7 +33,6 @@ function Searchresult() {
                     )
                     )}
                 </Row>
-            </Container>
     ); 
     
 }

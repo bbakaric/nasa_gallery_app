@@ -1,6 +1,6 @@
 import React,  { useState } from 'react';
 import '../style.css';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { searchImages } from '../redux/actions/imageActions';
 import Searchresult from './Searchresult';
@@ -32,23 +32,21 @@ function Search() {
         }
         
     return (
-        <div>
-        <div className='searchBar' >
-            <Form onSubmit={onSubmit} className='pt-5' expand='sm' >
-                <Row className='my-3 justify-content-md-center pb-2' lg='auto' >
-                    <Col lg='4'>
+        <Container fluid>
+            <Form onSubmit={onSubmit}>
+            <Row className='searchBar'> 
+                    <Col xs={0} sm={2} md={2} />
+                    <Col xs={8} sm={7} md={7} >
                     <Form.Control placeholder="Search term" onChange={handleChangeTerm} value={term} autoFocus={true}/>
                     </Col>
-                    <Col>
+                    <Col xs={1} sm={1} md={1} style={{textAlign:'center'}}>
                     <Button type="submit" variant='danger' >Search</Button>
                     </Col>
-                </Row>
+                    <Col xs={0} sm={2} md={2} />
+            </Row>
             </Form>
-            </div>
-            <div>
             <Searchresult />
-            </div>
-            </div>
+            </Container>
     );
 }
 

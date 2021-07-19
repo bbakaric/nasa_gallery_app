@@ -16,7 +16,7 @@ function Navigation() {
     return (
     <Router>
         <Container fluid >
-        <Navbar bg="dark" variant="dark" expand="md" fixed="top">
+        <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
                 <Navbar.Brand as={Link} to="/" className="px-3">
                     NASA Gallery
                 </Navbar.Brand>

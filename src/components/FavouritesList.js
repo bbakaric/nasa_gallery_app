@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Card, Row, Col, Button } from 'react-bootstrap';
+import { Card, Row, Col, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteImage } from '../redux/actions/imageActions';
 
@@ -9,11 +9,10 @@ function FavouritesList() {
     const dispatch = useDispatch();
 
     return (
-        <Container fluid>
-                <Row>
+                <Row className='mt-3 pt-5' xs={1} sm={2} md={3} lg={4} xl={5} xxl={6}>
                     {favouriteImages.map((img) => (
-                        <Col xs={3} className='mt-5 pt-5' key={img.id} >
-                        <Card className='h-100 bg-white' style={{width: '45vh', height: '30vh'}}>
+                        <Col key={img.id} className='pt-2'>
+                        <Card className='h-100 bg-white' style={{width: '100%', height: '30vh'}}>
                             <Card.Img style={{objectFit: 'cover', height: '30vh'}} variant='top' src={img.url} />
                             <Card.Body >
                                 <Card.Title className='mb-0 font-weight-bold text-center' >
@@ -28,8 +27,6 @@ function FavouritesList() {
                     )
                     )}
                 </Row>
-
-            </Container>
     ); 
 }
 

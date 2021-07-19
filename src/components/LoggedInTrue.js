@@ -3,7 +3,7 @@ import { signOut } from '../redux/actions/imageActions'
 import { emptyFavourites } from '../redux/actions/imageActions';
 import { clearSearchResults } from '../redux/actions/imageActions';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function LoggedInTrue() {
 
@@ -17,11 +17,19 @@ function LoggedInTrue() {
     }
 
     return (
-        <div style={{marginTop:'60px', marginLeft:'10px'}}>
-            <h3>You are logged in as {userInfo.email}</h3>
-            <Button variant='danger' onClick={sign_out}>Sign Out</Button>
-        </div>
+        <Container fluid>
+            <Row className='mt-5 pt-2'>
+                <Col >
+                    <h3 className='center'>You are logged in as {userInfo.email}</h3>
+                </Col>
+            </Row>
+            <Row>
+                <Col className='button'>
+                    <Button variant='danger' onClick={sign_out} >Sign Out</Button>
+                </Col>
+            </Row>
+        </Container>
     )
-}
+};
 
 export default LoggedInTrue;

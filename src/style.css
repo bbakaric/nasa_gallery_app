@@ -4,18 +4,13 @@
     background-size: cover;
     height: 100vh;
     width: 100%;
-}
-
-.second {
-    position: absolute;
-    margin-top: 200px;
-    margin-left: 85px;
-}
-
-.homeHdr {
     text-align: center;
     color: white;
     font-weight: bold;
+}
+
+.home > h1 {
+    padding-top: 65px;
 }
 
 .ufoImg {
@@ -33,53 +28,23 @@
     cursor: pointer;
 }
 
-.lightbox {
-    z-index: 1;
+.searchBar {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+    padding: 15px 15px;
+    z-index: 1;
+    top: 50px;
+    background: #212529;
+}
 
-.lightSpeedOut {
-    -webkit-animation-name: lightSpeedOut;
-    animation-name: lightSpeedOut;
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+@media all and (max-width: 768px) {
+    .center {
+        text-align: center;
     }
-    @-webkit-keyframes lightSpeedOut {
-    0% {
-    opacity: 1;
-    }
-    100% {
-    -webkit-transform: translate3d(100vh, 0, 0) skewX(30deg);
-    transform: translate3d(100vh, 0, 0) skewX(30deg);
-    opacity: 0;
-    }
-    }
-    @keyframes lightSpeedOut {
-    0% {
-    opacity: 1;
-    }
-    100% {
-    -webkit-transform: translate3d(100vh, 0, 0) skewX(30deg);
-    transform: translate3d(100vh, 0, 0) skewX(30deg);
-    opacity: 0;
-    }
-    } 
 
-    .searchBar {
-        position: sticky;
-        z-index: 1;
-        top: 0px;
-        background: #212529;
+    .button {
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
+}
