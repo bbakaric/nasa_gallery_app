@@ -1,12 +1,9 @@
-import React from 'react';
-import Navigation from './components/Navigation';
+import React from "react";
+
+import Navigation from "./components/Navigation";
 
 function App() {
-  return (
-    <div>
-      <Navigation />
-    </div>
-  );
+	return <Navigation />;
 }
 
 export default App;

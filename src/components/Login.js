@@ -1,70 +1,91 @@
-import React, { useState } from 'react';
-import { Container, Form, Button, Col, Row } from 'react-bootstrap';
-import { logIn } from '../redux/actions/imageActions';
-import { useDispatch, useSelector } from 'react-redux';
-import LoggedInTrue from './LoggedInTrue';
+import React, { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { logIn } from "../redux/actions/imageActions";
+import LoggedInTrue from "./LoggedInTrue";
+
+import { Container, Form, Button, Col, Row } from "react-bootstrap";
+import "../style.css";
 
 function Login() {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+	const user = useSelector((state) => state.loggedInUser.user);
 
-  const user = useSelector((state) => state.loggedInUser.user);
+	const handleChangeEmail = (e) => {
+		setEmail(e.target.value);
+	};
 
-  const handleChangeEmail = (e) => {
-    setEmail(e.target.value)
-  };
+	const handleChangePassword = (e) => {
+		setPassword(e.target.value);
+	};
 
-  const handleChangePassword = (e) => {
-    setPassword(e.target.value)
-  };
+	const onSubmit = (e) => {
+		e.preventDefault();
+		if (email.trim() && password.trim() !== "") {
+			dispatch(logIn(email, password, true));
+		} else {
+			alert("Please enter your email and password to login");
+		}
+		setEmail("");
+		setPassword("");
+	};
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if(email.trim() && password.trim() !== '') {
-      dispatch(logIn(email, password, true));
-    } else {
-      alert('Please enter your email and password to login')
-    }
-    setEmail('');
-    setPassword('');
-  };
+	const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
-
-    return (
-      <div>
-        {user.isLoggedIn ? 
-        <LoggedInTrue /> : 
-        <Container fluid>
-        <Form className='mt-5 pt-5 px-2' onSubmit={onSubmit} style={{width: '50%'}}>
-          <Form.Group as={Row}  >
-            <Form.Label column sm={5}>
-              Email
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control type="email" placeholder="Email" onChange={handleChangeEmail} value={email} autoFocus={true} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} className='mt-2'>
-            <Form.Label column sm={5}>
-              Password
-            </Form.Label>
-            <Col sm={10} >
-              <Form.Control type="password" placeholder="Password" onChange={handleChangePassword} value={password} />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} className='mt-2'>
-            <Col sm={{ span: 10, offset: 0 }} md={{ span: 10, offset: 0 }} lg={{ span: 10, offset: 0}}>
-              <Button type="submit">Sign in</Button>
-            </Col>
-          </Form.Group>
-        </Form>
-      </Container>}
-      </div>
-      
-    )
+	return (
+		<Container fluid className="background">
+			{user.isLoggedIn ? (
+				<LoggedInTrue />
+			) : (
+				<Form onSubmit={onSubmit} className="ml-5">
+					<Row>
+						<Form.Label column className="label mt-5 pt-5">
+							Email
+						</Form.Label>
+					</Row>
+					<Row>
+						<Col sm={10} md={5} xl={5}>
+							<Form.Control
+								type="email"
+								placeholder="Email"
+								onChange={handleChangeEmail}
+								value={email}
+								autoFocus={true}
+							/>
+						</Col>
+					</Row>
+					<Row>
+						<Form.Label column className="label">
+							Password
+						</Form.Label>
+					</Row>
+					<Row>
+						<Col sm={10} md={5} xl={5}>
+							<Form.Control
+								type="password"
+								placeholder="Password"
+								onChange={handleChangePassword}
+								value={password}
+							/>
+						</Col>
+					</Row>
+					<Row>
+						<Col
+							sm={{ span: 10, offset: 0 }}
+							md={{ span: 10, offset: 0 }}
+							lg={{ span: 10, offset: 0 }}
+							className="mt-3"
+						>
+							<Button type="submit">Sign in</Button>
+						</Col>
+					</Row>
+				</Form>
+			)}
+		</Container>
+	);
 }
 
 export default Login;
-
