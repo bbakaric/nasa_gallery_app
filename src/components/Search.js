@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { useDispatch } from "react-redux";
+import {
+	clearSearchResults,
+	searchImages,
+} from "../redux/actions/imageActions";
 
 import "../style.css";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
-
-import { useDispatch } from "react-redux";
-import { searchImages } from "../redux/actions/imageActions";
 
 import Searchresult from "./Searchresult";
 
@@ -27,12 +30,15 @@ function Search() {
 		e.preventDefault();
 		if (term !== "") {
 			dispatch(searchImages(term, date));
-			setTerm("");
 			scrollToTop();
 		} else {
 			alert("Enter search term !");
 		}
 	};
+
+	useEffect(() => {
+		dispatch(clearSearchResults());
+	});
 
 	return (
 		<Container fluid>

@@ -32,24 +32,22 @@ function Searchresult() {
 								{img.data[0].title}
 							</Card.Title>
 						</Card.Body>
-						<Button
-							variant="warning"
-							onClick={() => {
-								user.isLoggedIn
-									? dispatch(
-											selectedImage(
-												img.data[0].nasa_id,
-												img.links[0].href,
-												img.data[0].title
-											)
-									  )
-									: alert(
-											"You must be signed-in to create list of favourite pictures!"
-									  );
-							}}
-						>
-							Add to favourites
-						</Button>
+						{user.isLoggedIn ? (
+							<Button
+								variant="warning"
+								onClick={() =>
+									dispatch(
+										selectedImage(
+											img.data[0].nasa_id,
+											img.links[0].href,
+											img.data[0].title
+										)
+									)
+								}
+							>
+								Add to favourites
+							</Button>
+						) : null}
 					</Card>
 				</Col>
 			))}
